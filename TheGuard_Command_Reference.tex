@@ -1,0 +1,188 @@
+%!TEX aux_directory = H:\028_LaTeX\Math_Class_FHR\output
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[useregional]{datetime2}
+\usepackage[makeroom]{cancel}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\title{TheGuard --- Command Reference}
+\author{Simon Schürrle}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Master Commands}
+
+    \subsection{\texttt{/admin}}
+        \subsubsection*{Description}
+            The \texttt{/admin} Command allows a Master to add someone to the List of Staff that is allowed to use the Bot. Being Admin allows someone to use Admin commands and receive reports. If the Bot has permission to add Admins, they will automatically get Telegram Admin Permission in Groups that the Bot is in which allows them to Delete Messages or view Recent Actions.\\
+            Adding someone by Username will save them using their User ID since a Username can be changed so if an Admin changes his Username you don't have to make them Admin again. Before being able to make someone Admin using the Username the bot has to "know" the User so all Admins should send the Bot a Private message or a message in a Group the bot manages. The Staff is excluded from getting automatic warns.
+
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/admin}\\
+            Using a Username: \texttt{/admin @username}\\
+            Using a User ID: \texttt{/admin userid}
+
+
+    \subsection{\texttt{/unadmin}}
+        \subsubsection*{Description}
+            The \texttt{/unadmin} Command allows a Master to remove the User from the Staff list which will revoke them access to Admin commands.
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/unadmin}\\
+            Using a Username: \texttt{/unadmin @username}\\
+            Using a User ID: \texttt{/unadmin userid}
+
+
+    \subsection{\texttt{/leave}}
+        \subsubsection*{Description}
+            The \texttt{/leave} Command allows a Master to make the bot leave a Group Cleanly. This Command removes the Group from the list of Groups, so this should always be used instead of Kicking the Bot.
+
+        \subsubsection*{Syntax}
+            In a Group: \texttt{/leave}\\
+            Using the Group Name: \texttt{/leave name}\\
+            Using the Group ID: \texttt{/leave groupid}
+
+
+    \subsection{\texttt{/hidegroup}}
+        \subsubsection*{Description}
+            The \texttt{/hidegroup} Command allows a Master to hide the Group the command was executed from the Bots \texttt{/groups} Command. The Command is useful if you add the Bot to your Admin group but don't want people to Join.
+
+        \subsubsection*{Syntax}
+            In a Group: \texttt{/hidegroup}
+
+
+    \subsection{\texttt{/showgroup}}
+        \subsubsection*{Description}
+            The \texttt{/showgroup} Command allows a Master to show the Group the command was executed from the Bots \texttt{/groups} Command if it was hidden before.
+
+        \subsubsection*{Syntax}
+            In a Group: \texttt{/showgroup}
+
+
+
+\section{Admin Commands}
+
+    \subsection{\texttt{/warn}}
+        \subsubsection*{Description}
+            The \texttt{/warn} Command allows an Admin or Master to warn a User. If used as a reply, the Bot will delete the Message that was replied to.
+
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/warn reason}\\
+            Using a Username: \texttt{/warn @username reason}\\
+            Using a User ID: \texttt{/warn userid reason}
+
+    \subsection{\texttt{/unwarn}}
+        \subsubsection*{Description}
+            The \texttt{/unwarn} Command allows an Admin or Master to remove the last warn of a User. If the User was banned for having too many warns this will unban them.
+
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/unwarn}\\
+            Using a Username: \texttt{/unwarn @username}\\
+            Using a User ID: \texttt{/unwarn userid}
+
+    \subsection{\texttt{/nowarns}}
+        \subsubsection*{Description}
+            The \texttt{/nowarns} Command allows an Admin or Master to remove all warns a User might have. If the User was banned for having too many warns this will unban them.
+
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/nowarns}\\
+            Using a Username: \texttt{/nowarns @username}\\
+            Using a User ID: \texttt{/nowarns userid}
+
+
+    \subsection{\texttt{/ban}}
+        \subsubsection*{Description}
+            The \texttt{/ban} Command allows an Admin or Master to ban a User. If used as a reply, the Message that was replied to will be Deleted. Banning a User will remove him from all groups the Bot is administrating. If they aren't in a Group but try to join after being banned, the bot will ban them after entering.
+
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/ban reason}\\
+            Using a Username: \texttt{/ban @username reason}\\
+            Using a User ID: \texttt{/ban userid reason}
+
+    \subsection{\texttt{/unban}}
+        \subsubsection*{Description}
+            The \texttt{/unban} Command allows an Admin or Master to remove a User from the Banlist. The Command will unban the User in all Groups and will enable them to join again. This will remove all of the warns a User has.
+
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/unban}\\
+            Using a Username: \texttt{/unban @username}\\
+            Using a User ID: \texttt{/unban userid}
+\newpage
+
+    \subsection{\texttt{/user}}
+        \subsubsection*{Description}
+            The \texttt{/user} Command allows an Admin or Master to view the Info of any User. This includes their Name, Status(member or Admin), User ID, Username and any warns they might have. \\
+            If the User is not an Admin, they can only view their info. If they use the command with a Username or User ID that is not theirs, the Bot will ignore the Command. \\
+            If a Username is used that is unknown to the bot, it will Display the Info for the Admin or Master that issued the Command instead.
+
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/user}\\
+            Using a Username: \texttt{/user @username}\\
+            Using a User ID: \texttt{/user userid}
+
+
+    \subsection{\texttt{/addcommand}}
+        \subsubsection*{Description}
+            The \texttt{/addcommand} Command allows an Admin or Master to add a Custom Command that will be available in All Groups the Bot is managing. \\
+            Custom Commands are prefixed with an exclamation mark (\texttt{!}).\\
+            They can be limited to be either only used by Masters, Admins and Masters or Everyone. The restriction can be set in the First Part of the Custom Command Creation. They use the HTML Syntax for Markdown. If the Command already exists the Bot will ask if you want to replace it. Commands can be used in Groups or Private.
+
+        \subsubsection*{Example}
+            A Command created with \texttt{/addcommand test} can be used by sending \texttt{!test} in a Group or Directly to the Bot.
+
+        \subsubsection*{Syntax}
+            Direct Message to the Bot: \texttt{/addcommand name}\\
+
+
+    \subsection{\texttt{/removecommand}}
+        \subsubsection*{Description}
+            The \texttt{/removecommand} Command allows a Master to remove any Custom Command. Admins can only remove Commands for Admins or Everyone.
+
+        \subsubsection*{Syntax}
+            Direct Message to the Bot: \texttt{/removecommand name}\\
+
+
+\section{Everyone}
+    \subsection{\texttt{/staff}}
+        \subsubsection*{Description}
+            The \texttt{/staff} Command allows a User to Check the current List of Admins.
+
+        \subsubsection*{Syntax}
+            In a Group or in Private: \texttt{/staff}\\
+
+    \subsection{\texttt{/link}}
+        \subsubsection*{Description}
+            The \texttt{/link} Command allows a User to get the Link for the Group the Command in which the command was issued.
+
+        \subsubsection*{Syntax}
+            In a Group: \texttt{/link}\\
+\newpage
+    \subsection{\texttt{/groups}}
+        \subsubsection*{Description}
+            The \texttt{/groups} Command allows a User to get a list of groups the Bot manages. Groups hidden with \texttt{/hidegroup} will not show up.
+
+        \subsubsection*{Syntax}
+            In a Group or in Private: \texttt{/groups}\\
+
+
+    \subsection{\texttt{/report}}
+        \subsubsection*{Description}
+            The \texttt{/report} Command allows a User to report a Message. The bot will send a Message that mentions all Admins in a Message.
+
+        \subsubsection*{Syntax}
+            In reply to a message: \texttt{/report}\\
+
+    \subsection{\texttt{/user}}
+        \subsubsection*{Description}
+            The \texttt{/user} Command allows a User to get a List of their Current warns.
+
+        \subsubsection*{Syntax}
+            In a Group or in Private: \texttt{/user}\\
+\end{document}
+
